@@ -1,5 +1,6 @@
-# WarOfPlane
+
 飞机大战项目架构
+
 main.cpp中是游戏逻辑
 
 startMenu.cpp 是开始界面；
