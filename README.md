@@ -1,12 +1,16 @@
 
-飞机大战项目架构
 
-main.cpp中是游戏逻辑
+main.cpp                    主逻辑
 
-startMenu.cpp 是开始界面；
+playerPlane.cpp	玩家飞机
 
-pauseInterface.cpp 是暂停界面
+playerBullet.cpp	玩家子弹
 
-endInterface.cpp 是结束界面
+enemyPlane.cpp	敌人飞机
 
-对应的头文件是各个界面的函数声明（暂时没加）
+enemyBullet.cpp	敌人子弹
+
+interface.cpp	界面
+
+
+对应的头文件是各个cpp文件的函数声明或类声明
