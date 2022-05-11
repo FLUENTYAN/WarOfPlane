@@ -2,9 +2,12 @@
 
 #pragma once
 #include "graphics.h"
-#include "enemyPlane.h"
+
+class enemyPlane;
+class enemyBullet;
 
 class playerPlane {
+public:
 	//ÓÑÔªÉùÃ÷
 	friend 	bool enemyPlane::smallPlaneCrash(void);
 private:

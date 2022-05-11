@@ -1,10 +1,12 @@
-//玩家飞机类
+//玩家子弹类
 
 #pragma once
 #include "graphics.h"
-#include "enemyPlane.h"
+
+class enemyPlane;
 
 class playerBullet {
+public:
 	//友元
 	friend bool enemyPlane::smallPlaneShot(void);
 private:

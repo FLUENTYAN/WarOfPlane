@@ -10,13 +10,10 @@
 int PAUSE = 0, END = 0;
 
 void gameStart() {
-
 	//问题是需要刷新图片
 	//刷新需要把所有需要加载的图片进行记录并传递；
-	//用队列存是个好想法
-	//
-
-	//定义玩机、敌机、子弹
+	
+	//定义玩家、敌机、子弹
 	playerPlane user;
 	std::vector<enemyPlane> sEnemy(6), bEnemy(1);
 	std::vector<playerBullet> pBullet(9);
@@ -62,6 +59,7 @@ void gameStart() {
 				//小型机消失
 				sEnemy[0].smallPlaneVanish();
 			else
+				;
 				//压入小型机信息
 		}
 		//判断大型机存在
@@ -93,6 +91,7 @@ void gameStart() {
 				return;
 			}
 			else
+				;
 				//压入队列,等待被生成；
 		}
 

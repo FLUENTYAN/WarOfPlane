@@ -2,9 +2,12 @@
 
 #pragma once
 #include "graphics.h"
-#include "playerPlane.h"
+
+class playerPlane;
+class playerBullet;
 
 class enemyPlane {
+public:
 	//友元
 	friend bool playerPlane::playerPlaneCrash(void);
 private:
@@ -35,6 +38,4 @@ public:
 	void enemyBloodMinus(void);
 	//判断大型机血量
 	int bloodQuantity(void);
-	//大型机消失
-	void largePlaneVanish(void);
 };

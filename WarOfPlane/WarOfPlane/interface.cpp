@@ -66,20 +66,15 @@ void endInterface() {
 
 
 //画出背景图片
-void drawMap(void) {
-}
+void drawMap(void) {}
 //播放背景音乐
-void playBGM(void) {
-}
+void playBGM(void) {}
 //暂停按钮按下
-bool pauseKeyDown() {
-}
+bool pauseKeyDown() {}
 //画出开始界面
-void drawStartMenu(void) {
-}
+void drawStartMenu(void) {}
 //画出暂停界面
-void drawPauseInterface(void) {
-}
+void drawPauseInterface(void) {}
 //画出结束界面
 void drawEndInterface(void) {}
 
