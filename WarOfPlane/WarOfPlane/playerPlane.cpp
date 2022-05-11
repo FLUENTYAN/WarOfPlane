@@ -8,3 +8,13 @@ void playerPlane::playerPlaneInit(void) {
 void playerPlane::planeMove(void) {
 
 }
+//玩家被射中
+bool playerPlane::playerPlaneShot(void) {}
+//玩家被撞
+bool playerPlane::playerPlaneCrash(void) {}
+//玩家消失
+void playerPlane::playerPlaneVanish(void) {}
+//玩家血量减一
+void playerPlane::playerBloodMinus(void) {}
+//判断玩家血量
+int playerPlane::bloodQuantity(void) {}

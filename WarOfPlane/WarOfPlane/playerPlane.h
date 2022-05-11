@@ -2,10 +2,11 @@
 
 #pragma once
 #include "graphics.h"
+#include "enemyPlane.h"
 
 class playerPlane {
 	//ÓÑÔªÉùÃ÷
-	friend 	bool smallPlaneCrash(void);
+	friend 	bool enemyPlane::smallPlaneCrash(void);
 private:
 	int x = 450/2, y = 750/2;
 	int width, height;

@@ -4,7 +4,7 @@
 void enemyPlane::enemyPlaneInit(void) {
 }
 //小型机存在
-bool smallPlaneExist(void) {
+bool enemyPlane::smallPlaneExist(void) {
 }
 //小型机被射中
 bool enemyPlane::smallPlaneShot(void) {
