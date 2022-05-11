@@ -139,16 +139,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="endInterface.cpp" />
+    <ClCompile Include="enemyBullet.cpp" />
+    <ClCompile Include="enemyPlane.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="pauseInterface.cpp" />
-    <ClCompile Include="startMenu.cpp" />
+    <ClCompile Include="playerBullet.cpp" />
+    <ClCompile Include="playerPlane.cpp" />
+    <ClCompile Include="interface.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="endInterface.h" />
-    <ClInclude Include="pauseInterface.h" />
+    <ClInclude Include="enemyBullet.h" />
+    <ClInclude Include="playerBullet.h" />
+    <ClInclude Include="enemyPlane.h" />
     <ClInclude Include="playerPlane.h" />
-    <ClInclude Include="startMenu.h" />
+    <ClInclude Include="interface.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

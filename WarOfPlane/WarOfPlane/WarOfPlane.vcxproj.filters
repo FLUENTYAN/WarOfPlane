@@ -15,30 +15,39 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="startMenu.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="pauseInterface.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="endInterface.cpp">
+    <ClCompile Include="interface.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="playerPlane.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="enemyPlane.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="playerBullet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="enemyBullet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="startMenu.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="endInterface.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="pauseInterface.h">
+    <ClInclude Include="interface.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="playerPlane.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyPlane.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="playerBullet.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyBullet.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
