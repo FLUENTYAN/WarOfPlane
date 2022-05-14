@@ -1,4 +1,0 @@
-﻿  main.cpp
-D:\Programme_files\VisualStudio\vs\VC\Auxiliary\VS\include\graphics.h(1,1): warning C4828: 文件包含在偏移 0x19d3 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
-D:\Desktop\飞机大战\WarOfPlane\WarOfPlane\playerPlane.h(12,27): error C2027: 使用了未定义类型“enemyPlane”
-D:\Desktop\飞机大战\WarOfPlane\WarOfPlane\playerPlane.h(6): message : 参见“enemyPlane”的声明
