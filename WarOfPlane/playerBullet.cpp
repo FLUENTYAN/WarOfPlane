@@ -6,11 +6,11 @@ void playerBullet::playerBulletInit(int x, int y, int width, int height)
 {
 	this->width = 20;
 	this->height = 20;
-	this->x = x + width / 2 - this->width / 2+10;
-	this->y = y+20;
+	this->x = x + width/2 - this->width/2;
+	this->y = y + this->height;
 	ATK = 1;
 	loadimage(&img1,"bossBullet.png",20,20);
-	putimage(x, y, &img1);
+	putimage(this->x, this->y-(this->height) * 2, &img1);
 
 }
 //子弹移动（左右条件移动）向上固定移动
@@ -21,5 +21,5 @@ void playerBullet::bulletMove(void)
 
 void playerBullet::bulletPrint(void)
 {
-	putimage(x-width, y, &img1);
+	putimage(this->x, this->y-(this->height)*2, &img1);
 }

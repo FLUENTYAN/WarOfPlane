@@ -1,8 +1,13 @@
-﻿  interface.cpp
+﻿  enemyBullet.cpp
+D:\Programme_files\VisualStudio\vs\VC\Auxiliary\VS\include\graphics.h(1,1): warning C4828: 文件包含在偏移 0x19d3 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
+  enemyPlane.cpp
+D:\Programme_files\VisualStudio\vs\VC\Auxiliary\VS\include\graphics.h(1,1): warning C4828: 文件包含在偏移 0x19d3 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
   main.cpp
 D:\Programme_files\VisualStudio\vs\VC\Auxiliary\VS\include\graphics.h(1,1): warning C4828: 文件包含在偏移 0x19d3 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
-D:\Desktop\new\临时\WarOfPlane\main.cpp(10,8): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-D:\Desktop\new\临时\WarOfPlane\main.cpp(11,9): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
-D:\Desktop\new\临时\WarOfPlane\main.cpp(12,9): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  playerBullet.cpp
+D:\Programme_files\VisualStudio\vs\VC\Auxiliary\VS\include\graphics.h(1,1): warning C4828: 文件包含在偏移 0x19d3 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
+  playerPlane.cpp
+D:\Programme_files\VisualStudio\vs\VC\Auxiliary\VS\include\graphics.h(1,1): warning C4828: 文件包含在偏移 0x19d3 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
+  interface.cpp
   正在生成代码...
-  WarOfPlane.vcxproj -> D:\Desktop\new\临时\x64\Debug\WarOfPlane.exe
+  WarOfPlane.vcxproj -> D:\Desktop\飞机大战\x64\Debug\WarOfPlane.exe

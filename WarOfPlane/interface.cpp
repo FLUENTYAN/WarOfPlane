@@ -141,7 +141,7 @@ void endInterface() {
 		if (mouseInRestartSquare()) {
 			//重新开始游戏;
 			//return;
-			//gameStart();
+			gameStart();
 		}
 		//如果鼠标左键按下且鼠标在返回菜单框内
 		else if (mouseInReturnSquare()) {

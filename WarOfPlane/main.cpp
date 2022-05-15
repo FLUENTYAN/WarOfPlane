@@ -7,16 +7,16 @@
 #include "enemyBullet.h"
 
 bool judgeCarsh(int x1, int y1, int width1, int height1, int x2, int y2, int width2, int height2) {
-	int a = pow(x1 - x2 + width1 / 2 - width2 / 2, 2);
-	int a1 = pow(y1 - y2 + height1 / 2 - height2 / 2, 2);
-	int a2 = pow(width1 + width2, 2) / 4 + pow(height1 / 2 + height2 / 2, 2) / 4;
+	double a = pow(x1 - x2 + width1 / 2 - width2 / 2, 2);
+	double a1 = pow(y1 - y2 + height1 / 2 - height2 / 2, 2);
+	double a2 = pow(width1 + width2, 2) / 4 + pow(height1 / 2 + height2 / 2, 2) / 4;
 	return a + a1 < a2;
 }
 constexpr auto ONE = 10; //多少次循环生成敌机;
-constexpr auto TWO = 20;//多少次生成飞机子弹
-constexpr auto	THREE = 200;//多少次生成boss子弹
-constexpr auto FOUR = 200;//计算飞机产生伤害时 多少循环后进行下次伤害判断
-constexpr auto FIVE = 2000;//boss产生
+constexpr auto TWO = 10;//多少次生成飞机子弹
+constexpr auto	THREE = 90;//多少次生成boss子弹
+constexpr auto FOUR = 50;//计算飞机产生伤害时 多少循环后进行下次伤害判断
+constexpr auto FIVE = 500;//boss产生
 
 //定义暂停和死亡全局变量
 int PAUSE = 0, END = 0;
