@@ -13,8 +13,11 @@ void  enemyBullet::enemyBulletInit(int x, int y, int w, int h)
 	this->x = x + w / 2 - 10;
 	this->y = y+20+h;
 	ATK = 1;
-	loadimage(&img1,"./bossBullet.png",20, 20);
-	putimage(this->x, this->y, &img1);
+	loadimage(&img1,"bossBullet1.png",20, 20);
+	loadimage(&img2, "bossBullet2.png", 20, 20);
+	putimage(this->x, this->y, &img1,SRCPAINT);
+	putimage(this->x, this->y, &img2,SRCAND);
+	
 
 }
 //子弹移动 向下固定移动
@@ -24,5 +27,6 @@ void  enemyBullet::enemyBulletMove(void)
 }
 //子弹打印
 void enemyBullet::enemyPrint(void) {
-	putimage(x, y, &img1);
+	putimage(x, y, &img1,SRCPAINT);
+	putimage(x, y, &img2, SRCAND);
 }

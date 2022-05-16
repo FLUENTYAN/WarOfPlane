@@ -12,7 +12,7 @@ public:
 	int x = 0, y = 0;
 	int width, height;
 	int blood;
-	IMAGE img1;
+	IMAGE img1, img2;
 public:
 	//玩家飞机初始化
 	void playerPlaneInit(void);

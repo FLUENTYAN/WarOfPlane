@@ -11,7 +11,7 @@ public:
 	int x, y;
 	int width, height;
 	int ATK;
-	IMAGE img1;
+	IMAGE img1,img2;
 public:
 	//×Óµ¯³õÊ¼»¯ //xy 
 	void enemyBulletInit(int x,int y,int width,int height);//

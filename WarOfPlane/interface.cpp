@@ -35,7 +35,8 @@ void playBGM() {
 // »­³ö±³¾°Í¼Æ¬
 void drawMap(void) {
 	IMAGE img;
-	loadimage(&img, "./bk.jpg", ui_w, ui_h);
+	//loadimage(&img, "./bk.jpg", ui_w, ui_h);
+	loadimage(&img, "./bk2.jpg", ui_w, ui_h);
 	putimage(0, 0, &img);
 }
 

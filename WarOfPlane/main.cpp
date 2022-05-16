@@ -12,15 +12,12 @@ bool judgeCarsh(int x1, int y1, int width1, int height1, int x2, int y2, int wid
 	double a2 = pow(width1 + width2, 2) / 4 + pow(height1 / 2 + height2 / 2, 2) / 4;
 	return a + a1 < a2;
 }
-constexpr auto ONE = 10; //多少次循环生成敌机;
-constexpr auto TWO = 10;//多少次生成飞机子弹
+constexpr auto ONE = 30; //多少次循环生成敌机;
+constexpr auto TWO = 30;//多少次生成飞机子弹
 constexpr auto	THREE = 90;//多少次生成boss子弹
 constexpr auto FOUR = 50;//计算飞机产生伤害时 多少循环后进行下次伤害判断
 constexpr auto FIVE = 500;//boss产生
 
-//定义暂停和死亡全局变量
-int PAUSE = 0, END = 0;
-int sum = 1;
 void gameStart() {
 	//问题是需要刷新图片
 	//刷新需要把所有需要加载的图片进行记录并传递；

@@ -12,7 +12,7 @@ public:
 	int x, y;
 	int width, height;
 	int blood;
-	IMAGE img1;
+	IMAGE img1,img2;
 public:
 	
 	

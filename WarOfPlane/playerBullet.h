@@ -11,7 +11,7 @@ public:
 	int x, y;//坐标
 	int width, height;//图片高和宽
 	int ATK;//攻击力 
-	IMAGE img1;
+	IMAGE img1,img2;
 public:
 	//子弹初始化 
 	void playerBulletInit(int x,int y,int width,int height); 
