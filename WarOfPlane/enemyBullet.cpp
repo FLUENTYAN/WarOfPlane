@@ -26,7 +26,7 @@ void  enemyBullet::enemyBulletMove(void)
 	y = y + 1;
 }
 //×Óµ¯´òÓ¡
-void enemyBullet::enemyPrint(void) {
+void enemyBullet::eBulletPrint(void) {
 	putimage(x, y, &img1,SRCPAINT);
 	putimage(x, y, &img2, SRCAND);
 }

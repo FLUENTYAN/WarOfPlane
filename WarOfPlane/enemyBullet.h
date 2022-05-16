@@ -32,7 +32,7 @@ public:
 		参数 返回值也不需要 
 		改变y值 y+=10 px
 	*/
-	void enemyPrint(void);
+	void eBulletPrint(void);
 	/*f
 		参数和返回值 无
 		功能 实现在x，y处打印图片即可

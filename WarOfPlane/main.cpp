@@ -1,40 +1,37 @@
-#include <list>
-#include<iostream>
+#include <list>             //std::list std::list<>::iterator
 #include "interface.h"
 #include "playerPlane.h"
 #include "enemyPlane.h"
 #include "playerBullet.h"
 #include "enemyBullet.h"
 
+//Wether bullet or enemyPlane crash into userPlane
 bool judgeCarsh(int x1, int y1, int width1, int height1, int x2, int y2, int width2, int height2) {
 	double a = pow(x1 - x2 + width1 / 2 - width2 / 2, 2);
 	double a1 = pow(y1 - y2 + height1 / 2 - height2 / 2, 2);
 	double a2 = pow(width1 + width2, 2) / 4 + pow(height1 / 2 + height2 / 2, 2) / 4;
 	return a + a1 < a2;
 }
-constexpr auto ONE = 30; //多少次循环生成敌机;
-constexpr auto TWO = 30;//多少次生成飞机子弹
-constexpr auto	THREE = 90;//多少次生成boss子弹
-constexpr auto FOUR = 50;//计算飞机产生伤害时 多少循环后进行下次伤害判断
-constexpr auto FIVE = 500;//boss产生
 
+//constant valuables that decide the gap time of bullet and plane's existance
+constexpr auto ONE = 30; //normal size enemy plane;
+constexpr auto TWO = 30;//user plane bullet
+constexpr auto	THREE = 90;//boss bullet
+constexpr auto FOUR = 50;//undefeatable time too avoid continous blood loss by one enemy
+constexpr auto FIVE = 500;//boss 
+
+//to calculate how many times do the while loop goes
+int sum = 1;
 void gameStart() {
-	//问题是需要刷新图片
-	//刷新需要把所有需要加载的图片进行记录并传递；
 
-	//定义玩家、敌机、子弹
-	bool blood = true;//用于判断是否扣血 真表示可以减少血量 否则无敌
-	int sum2 = FOUR;//计数有多少循环玩家处于无法扣血
-	//新定义 用链表
+	bool defeatable = true;//valuable that decide whether or not one is undefeatable
+	int sum2 = FOUR;//as you see, it just stores FOUR
+	
+	//definition of plane and bullet
 	playerPlane user;
-	std::list<enemyPlane> sEnemy, bEnemy;//前者是小型机 后者是boss
-	std::list<enemyPlane>::iterator s1, b1;//迭代器用于变量访问
-
-	std::list<playerBullet> pBullet;//玩家子弹
-	std::list<playerBullet>::iterator p1;//迭代器用于变量访问
-
-	std::list<enemyBullet> eBullet;//敌机子弹
-	std::list<enemyBullet>::iterator e1;//迭代器用于变量访问
+	std::list<enemyPlane> sEnemy, bEnemy;
+	std::list<playerBullet> pBullet;
+	std::list<enemyBullet> eBullet;
 
 	//画出背景图'
 	drawMap();
@@ -63,22 +60,22 @@ void gameStart() {
 #pragma region
 		//这里是玩家子弹移动 
 		if (!pBullet.empty()) {
-			for (p1 = pBullet.begin(); p1 != pBullet.end(); p1++) {
-				p1->bulletMove();
+			for (auto iter = pBullet.begin(); iter != pBullet.end(); iter++) {
+				iter->bulletMove();
 			}
 		}
 
 		//这里是敌机子弹移动 
 		if (!eBullet.empty()) {
-			for (e1 = eBullet.begin(); e1 != eBullet.end(); e1++) {
-				e1->enemyBulletMove();
+			for (auto iter = eBullet.begin(); iter != eBullet.end(); iter++) {
+				iter->enemyBulletMove();
 			}
 		}
 
 		//敌机移动
 		if (!sEnemy.empty()) {
-			for (s1 = sEnemy.begin(); s1 != sEnemy.end(); s1++) {
-				s1->smallPlaneMove();
+			for (auto iter = sEnemy.begin(); iter != sEnemy.end(); iter++) {
+				iter->smallPlaneMove();
 			}
 		}
 		//飞机移动（函数内包含读取移动方向键的函数）
@@ -103,122 +100,120 @@ void gameStart() {
 		//子弹碰撞
 		//判断循环 首先飞机和子弹的 之后是boss的
 		//玩家飞机和子弹
-		if (blood && !eBullet.empty()) //判断是否子弹有 是否可被扣血
+		if (defeatable && !eBullet.empty()) //判断是否子弹有 是否可被扣血
 		{
-			for (e1 = eBullet.begin(); e1 != eBullet.end();) {
-				if (judgeCarsh(user.x, user.y, user.width, user.height, e1->x, e1->y, e1->width, e1->height)) {
-					eBullet.erase(e1++);
+			for (auto iter = eBullet.begin(); iter != eBullet.end(); ) {
+				if (judgeCarsh(user.x, user.y, user.width, user.height, iter->x, iter->y, iter->width, iter->height)) {
+					eBullet.erase(iter++);
 					user.playerBloodMinus();
-					blood = false;
+					defeatable = false;
 					break;
 				}
 				else
-					e1++;
+					iter++;
 			}
 		}
 		//玩家飞机和敌机
-		if (blood && !sEnemy.empty()) {
-			for (s1 = sEnemy.begin(); s1 != sEnemy.end(); ) {
-				if (judgeCarsh(user.x, user.y, user.width, user.height, s1->x, s1->y, s1->width, s1->height)) {
-					sEnemy.erase(s1++);//清理该敌机
+		if (defeatable && !sEnemy.empty()) {
+			for (auto iter = sEnemy.begin(); iter != sEnemy.end(); ) {
+				if (judgeCarsh(user.x, user.y, user.width, user.height, iter->x, iter->y, iter->width, iter->height)) {
+					sEnemy.erase(iter++);//清理该敌机
 					user.playerBloodMinus();
-					blood = false;
+					defeatable = false;
 					break;
 				}
 				else
-					s1++;
+					iter++;
 			}
 		}
 		//玩家飞机和boss
-		if (blood && !bEnemy.empty()) {
+		if (defeatable && !bEnemy.empty()) {
 			if (judgeCarsh(user.x, user.y, user.width, user.height, bEnemy.front().x, bEnemy.front().y, bEnemy.front().width, bEnemy.front().height)) {
 				user.playerBloodMinus();
-				blood = false;
+				defeatable = false;
 				break;
 			}
 		}
 
 		//循环判断 敌机和飞机子弹的
 		if (!sEnemy.empty() && !pBullet.empty()) {
-			for (s1 = sEnemy.begin(); s1 != sEnemy.end();) {
+			for (auto iter1 = sEnemy.begin(); iter1 != sEnemy.end(); ) {
 				if (pBullet.empty())//如果出现子弹没了的话直接跳过判断
 					break;
 				bool isthrought = true;
-				for (p1 = pBullet.begin(); p1 != pBullet.end(); ) {
-					if (judgeCarsh(s1->x, s1->y, s1->width, s1->height, p1->x, p1->y, p1->width, p1->height)&&s1->y>=0)
+				for (auto iter2 = pBullet.begin(); iter2 != pBullet.end(); ) {
+					if (judgeCarsh(iter1->x, iter1->y, iter1->width, iter1->height, iter2->x, iter2->y, iter2->width, iter2->height) && iter1->y >= 0)
 					{
-						sEnemy.erase(s1++);
-						pBullet.erase(p1++);
+						sEnemy.erase(iter1++);
+						pBullet.erase(iter2++);
 						isthrought = false;
 						break;
 					}
 					else
-						p1++;
+						iter2++;
 				}
 				if (isthrought)
-					s1++;
+					iter1++;
 			}
 		}
 
 		//循环判读 boss和飞机子弹是否碰撞 碰撞则减血
 		if (!bEnemy.empty() && !pBullet.empty()) {
 
-			for (p1 = pBullet.begin(); p1 != pBullet.end(); ) {
-				if (judgeCarsh(bEnemy.front().x, bEnemy.front().y, bEnemy.front().width, bEnemy.front().height, p1->x, p1->y, p1->width, p1->height))
+			for (auto iter = pBullet.begin(); iter != pBullet.end(); ) {
+				if (judgeCarsh(bEnemy.front().x, bEnemy.front().y, bEnemy.front().width, bEnemy.front().height, iter->x, iter->y, iter->width, iter->height))
 				{
 					bEnemy.front().enemyBloodMinus();
-					pBullet.erase(p1++);
+					pBullet.erase(iter++);
 					break;
 				}
 				else
-					p1++;
+					iter++;
 			}
 		}
-				
+		//?		
 		if (!bEnemy.empty() && bEnemy.front().blood <= 0) {
 			bEnemy.clear();
 		}
-		//删除模块 2.看看是否有子弹或敌机飞入边界 
-		//敌机和敌机子弹都是y坐标>=750 本机子弹是小于等于自身高度 进行删除
+		//delete the small plane, boss and its bullet if they are not int the screen
 		if (!sEnemy.empty()) {
-			for (s1 = sEnemy.begin(); s1 != sEnemy.end(); ) {
-				if (s1->y >= 750)
+			for (auto iter = sEnemy.begin(); iter != sEnemy.end(); ) {
+				if (iter->y >= 750)
 				{
-					sEnemy.erase(s1++);
+					sEnemy.erase(iter++);
 				}
 				else
-					s1++;
+					iter++;
 			}
 		}
 		if (!pBullet.empty()) {
-			for (p1 = pBullet.begin(); p1 != pBullet.end(); ) {
-				if (p1->y <= -p1->height)
+			for (auto iter = pBullet.begin(); iter != pBullet.end(); ) {
+				if (iter->y <= -iter->height)
 				{
-					pBullet.erase(p1++);
+					pBullet.erase(iter++);
 				}
 				else
-					p1++;
+					iter++;
 			}
 		}
 		if (!eBullet.empty()) {
-			for (e1 = eBullet.begin(); e1 != eBullet.end();) {
-				if (e1->y > 750)
+			for (auto iter = eBullet.begin(); iter != eBullet.end();) {
+				if (iter->y > 750)
 				{
-					eBullet.erase(e1++);
+					eBullet.erase(iter++);
 				}
 				else
-					e1++;
+					iter++;
 			}
 		}
 
-		//判断是否暂停
+		//jump into pause interface once BLANK is hit
 		FlushBatchDraw();
 		if (pauseKeyDown()) {
-			//跳转暂停界面
 			EndBatchDraw();
 			pauseInterface();
 		}
-		//删除模块 1.血量为零 直接删除 玩家或boss 
+		//jump into end interface once user is dead
 		FlushBatchDraw();
 		if (user.blood <= 0) {
 			EndBatchDraw();
@@ -226,54 +221,46 @@ void gameStart() {
 			return;
 		}
 
-		/*
-		* 打印函数
-		*经过飞机 子弹 boss 生成函数
-		* 飞机子弹移动函数
-		* 飞机 子弹boss碰撞函数
-		* 飞机子弹boss删除函数 此时
-		* 留下玩家飞机 有血 小敌机 未被击中未移出边界 boss 有血且被生成的三段链表
-		* 此时进行打印操作
-		*/
 		FlushBatchDraw();
-		cleardevice(); //清除上一次绘图
-		drawMap();//画地图
-		user.playerPrint();
+		cleardevice(); //clear the whole screen
+		drawMap();//draw the map
+		user.playerPrint();// draw the user plane
+		//draw the small enemy that did not die
 		if (!sEnemy.empty()) {
-			for (s1 = sEnemy.begin(); s1 != sEnemy.end(); s1++) {
-				s1->smallPlanePrint();
+			for (auto iter = sEnemy.begin(); iter != sEnemy.end(); iter++) {
+				iter->smallPlanePrint();
 			}
 		}
+		//draw the boss's bullet that exist
 		if (!eBullet.empty()) {
-			for (e1 = eBullet.begin(); e1 != eBullet.end(); e1++) {
-				e1->enemyPrint();
+			for (auto iter = eBullet.begin(); iter != eBullet.end(); iter++) {
+				iter->eBulletPrint();
 			}
 		}
+		//draw the existing player bullet
 		if (!pBullet.empty()) {
-			for (p1 = pBullet.begin(); p1 != pBullet.end(); p1++) {
-				p1->bulletPrint();
+			for (auto iter = pBullet.begin(); iter != pBullet.end(); iter++) {
+				iter->bulletPrint();
 			}
 		}
+		//draw the boss if exist
 		if (!bEnemy.empty()) {
 			bEnemy.front().largePlanePrint();
 		}
+		//show the remaining life of user plane
 		user.bloodShow();
-		//清空旧图
-		//打印地图和界面
-		//show(); 根据上方堆栈的信息一个个打印
-		//刷新新图
-		//先
-
-		//循环判断 无敌状态
-		if (!blood) {
+		
+		//after certain time of loop, make it defeatable	
+		if (!defeatable) {
 			sum2--;
 			if (sum2 <= 0) {
-				blood = true;
+				defeatable = true;
 				sum2 = FOUR;
 			}
 		}
+		//sum increase 1 every loop
 		++sum;
-		//Sleep(100000);
+		//to avoid bug
 		if (sum >= 9999999) {
 			sum = 0;
 		}
@@ -281,6 +268,6 @@ void gameStart() {
 }
 
 int main(void) {
-	//展示开始界面
+	//jump into start interface once begin	
 	startMenu();
 	}
