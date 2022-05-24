@@ -40,10 +40,9 @@ public:
 	*/
 	
 	//玩家血量减一
-	void playerBloodMinus(void);
-	/*无参数 无返回值
-	* 实现HP-1;
-	*/
+	inline void playerBloodMinus(void) { --blood; }
+
+
 	void playerPrint(void);
 	/*无参数 无返回值
 	* loadimage 根据x，y img1打印图片；

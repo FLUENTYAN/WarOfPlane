@@ -23,19 +23,6 @@ void playerPlane::planeMove(void) {
 	//while (true) 
 
 	if ((y < 0 || x < 0 || x > 450 - width || y > 750 - height)) {
-		/*if (x <= 0) {
-			x += 1;
-		}
-		else if (x >= 450 - 90) {
-			x -= 1;
-		}
-		else if (y <= 0) {
-			y += 1;
-		}
-		else if (y >= 750 - 120) {
-			y -= 1;
-		}
-	}*/
 		if (x < 0) {
 			x = 0;
 		}
@@ -62,11 +49,6 @@ void playerPlane::planeMove(void) {
 	//putimage(x, y, &img1);
 	//system("cls");//清屏  不然速度特别快
 //}
-}
-
-//玩家血量减一
-void playerPlane::playerBloodMinus(void) {
-	blood--;
 }
 
 void playerPlane::playerPrint(void) {

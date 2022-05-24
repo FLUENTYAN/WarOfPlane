@@ -20,11 +20,6 @@ void  enemyBullet::enemyBulletInit(int x, int y, int w, int h)
 	
 
 }
-//子弹移动 向下固定移动
-void  enemyBullet::enemyBulletMove(void)
-{
-	y = y + 1;
-}
 //子弹打印
 void enemyBullet::eBulletPrint(void) {
 	putimage(x, y, &img1,SRCPAINT);

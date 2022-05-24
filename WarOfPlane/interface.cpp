@@ -8,6 +8,7 @@
 
 void gameStart(void);
 //开始界面
+// start interface
 void startMenu() {
 	//画出开始界面
 	drawStartMenu();

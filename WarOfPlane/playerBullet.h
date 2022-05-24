@@ -26,7 +26,7 @@ public:
 		初始化ATK 为1
 	*/
 	//子弹移动 向上固定移动
-	void bulletMove(void);
+	inline void bulletMove(void) { y -= 10; }
 	/*
 	* 传入参数 返回值 无；
 	*	y-=10; 

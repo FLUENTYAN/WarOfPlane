@@ -37,18 +37,6 @@ void enemyPlane::largePlaneInit(void) {
 
 }
 
-
-//小型机移动
-void enemyPlane::smallPlaneMove(void) {
-	y += 5;
-}
-
-
-//大型机血量减一
-void enemyPlane::enemyBloodMinus(void) {
-	blood--;
-}
-
 void enemyPlane::largePlanePrint(void) {
 	// 创建一个矩形区域
 	HRGN rgn = CreateRectRgn(x, y, x + 149, y + 199);

@@ -15,11 +15,6 @@ void playerBullet::playerBulletInit(int x, int y, int width, int height)
 	putimage(this->x, this->y - (this->height) * 2, &img2,SRCAND);
 
 }
-//子弹移动（左右条件移动）向上固定移动
-void playerBullet::bulletMove(void)
-{
-		y = y - 10;
-}
 
 void playerBullet::bulletPrint(void)
 {

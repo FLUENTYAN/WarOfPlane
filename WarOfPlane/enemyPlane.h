@@ -49,17 +49,10 @@ public:
 
 	*/
 	//小型机移动
-	void smallPlaneMove(void);
-	/*
-	* y+=10;
-	* 参数无 无返回值
-	*/
+	inline void smallPlaneMove(void) { y += 5; }
 	//大型机血量减一
-	void enemyBloodMinus(void);
-	/*
-	* 参数无 无返回值
-	* blood--
-	*/
+	inline void enemyBloodMinus(void) { --blood; }
+	
 	void smallPlanePrint(void);
 	/*
 	* 参数无 无返回值

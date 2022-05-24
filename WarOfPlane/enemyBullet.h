@@ -11,12 +11,12 @@ public:
 	int x, y;
 	int width, height;
 	int ATK;
-	IMAGE img1,img2;
+	IMAGE img1, img2;
 public:
 	//子弹初始化 //xy 
-	void enemyBulletInit(int x,int y,int width,int height);//
+	void enemyBulletInit(int x, int y, int width, int height);//
 	/*
-		
+
 		传入参数：x，y-boss图片左上角坐标 width-boss图宽 height-boss图高度
 		返回值 无；
 		实现效果：子弹在boss正下方 子弹中心轴和boss图片中心轴重合
@@ -27,11 +27,7 @@ public:
 		初始化ATK 为1
 	*/
 	//子弹移动 向下固定移动
-	void enemyBulletMove(void);
-	/*
-		参数 返回值也不需要 
-		改变y值 y+=10 px
-	*/
+	inline void enemyBulletMove(void) { y = y + 1; }
 	void eBulletPrint(void);
 	/*f
 		参数和返回值 无
