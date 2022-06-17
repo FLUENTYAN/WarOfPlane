@@ -2,8 +2,7 @@
 #include"graphics.h"
 #include<easyx.h>
 //×Óµ¯³õÊ¼»¯
-void playerBullet::playerBulletInit(int x, int y, int width, int height)
-{
+void playerBullet::playerBulletInit(int x, int y, int width, int height) {
 	this->width = 20;
 	this->height = 20;
 	this->x = x + width/2 - this->width/2;
@@ -16,8 +15,7 @@ void playerBullet::playerBulletInit(int x, int y, int width, int height)
 
 }
 
-void playerBullet::bulletPrint(void)
-{
+void playerBullet::bulletPrint(void) const {
 	//putimage(this->x, this->y-(this->height)*2, &img1);
 	putimage(this->x, this->y - (this->height) * 2, &img1, SRCPAINT);
 	putimage(this->x, this->y - (this->height) * 2, &img2, SRCAND);

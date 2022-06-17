@@ -28,7 +28,8 @@ public:
 	*/
 	//子弹移动 向下固定移动
 	inline void enemyBulletMove(void) { y = y + 1; }
-	void eBulletPrint(void);
+	
+	void eBulletPrint(void) const;
 	/*f
 		参数和返回值 无
 		功能 实现在x，y处打印图片即可

@@ -53,12 +53,12 @@ public:
 	//大型机血量减一
 	inline void enemyBloodMinus(void) { --blood; }
 	
-	void smallPlanePrint(void);
+	void smallPlanePrint(void) const;
 	/*
 	* 参数无 无返回值
 	 打印 利用putimage()函数 参数 类中 x，y img1
 	*/
-	void largePlanePrint(void);
+	void largePlanePrint(void) const;
 	/*
 	参数无 无返回值
 	* 打印 利用putimage()函数 参数 类中 x，y img1

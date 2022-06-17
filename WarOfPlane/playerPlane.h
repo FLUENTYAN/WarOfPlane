@@ -43,9 +43,9 @@ public:
 	inline void playerBloodMinus(void) { --blood; }
 
 
-	void playerPrint(void);
+	void playerPrint(void) const;
 	/*无参数 无返回值
 	* loadimage 根据x，y img1打印图片；
 	*/
-	void bloodShow(void);
+	void bloodShow(void) const;
 };

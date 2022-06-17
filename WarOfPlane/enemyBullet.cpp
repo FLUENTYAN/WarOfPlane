@@ -21,7 +21,7 @@ void  enemyBullet::enemyBulletInit(int x, int y, int w, int h)
 
 }
 //×Óµ¯´òÓ¡
-void enemyBullet::eBulletPrint(void) {
+void enemyBullet::eBulletPrint(void) const {
 	putimage(x, y, &img1,SRCPAINT);
 	putimage(x, y, &img2, SRCAND);
 }

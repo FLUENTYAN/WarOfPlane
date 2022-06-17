@@ -51,12 +51,12 @@ void playerPlane::planeMove(void) {
 //}
 }
 
-void playerPlane::playerPrint(void) {
+void playerPlane::playerPrint(void) const {
 	putimage(x, y, &img1, SRCPAINT);
 	putimage(x, y, &img2, SRCAND);
 }
 
-void playerPlane::bloodShow(void) {
+void playerPlane::bloodShow(void) const {
 	IMAGE img3, img4;
 	loadimage(&img3, "./blood1.png", 20, 20);
 	loadimage(&img4, "./blood2.png", 20, 20);

@@ -37,7 +37,12 @@ void enemyPlane::largePlaneInit(void) {
 
 }
 
-void enemyPlane::largePlanePrint(void) {
+void enemyPlane::smallPlanePrint(void) const {
+	putimage(x, y, &img1, SRCPAINT);
+	putimage(x, y, &img2, SRCAND);
+}
+
+void enemyPlane::largePlanePrint(void) const {
 	// 创建一个矩形区域
 	HRGN rgn = CreateRectRgn(x, y, x + 149, y + 199);
 	// 将该矩形区域设置为裁剪区
@@ -50,9 +55,4 @@ void enemyPlane::largePlanePrint(void) {
 
 	// 取消之前设置的裁剪区
 	setcliprgn(NULL);
-}
-
-void enemyPlane::smallPlanePrint(void) {
-	putimage(x, y, &img1, SRCPAINT);
-	putimage(x, y, &img2, SRCAND);
 }
