@@ -1,6 +1,1 @@
-﻿  main.cpp
-D:\Programme_files\VisualStudio\vs\VC\Auxiliary\VS\include\graphics.h(1,1): warning C4828: 文件包含在偏移 0x19d3 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
-  playerBullet.cpp
-D:\Programme_files\VisualStudio\vs\VC\Auxiliary\VS\include\graphics.h(1,1): warning C4828: 文件包含在偏移 0x19d3 处开始的字符，该字符在当前源字符集中无效(代码页 936)。
-  正在生成代码...
-  WarOfPlane.vcxproj -> D:\Data&download\learning\01星球\第一个项目\飞机大战\WarOfPlane\x64\Debug\WarOfPlane.exe
+﻿  WarOfPlane.vcxproj -> D:\Data&download\learning\01星球\第一个项目\飞机大战\WarOfPlane\x64\Debug\WarOfPlane.exe

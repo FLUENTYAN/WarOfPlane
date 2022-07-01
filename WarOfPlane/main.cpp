@@ -1,4 +1,5 @@
-#include <list>             //std::list std::list<>::iterator
+#include <memory>			//std::shared_ptr std::make_shared
+#include <list>             //std::list		  std::list<>::iterator
 #include "interface.h"
 #include "playerPlane.h"
 #include "enemyPlane.h"
@@ -54,15 +55,14 @@ void gameStart() {
 		//create enemy plane
 		BeginBatchDraw();
 		if (sum % ONE == 0) {
-			enemyPlane* e = new enemyPlane();
-		
-			e->smallPlaneInit();
-			sEnemy.push_back(*e);
+			std::shared_ptr<enemyPlane> sEnemyPtr = std::make_shared<enemyPlane>();
+			sEnemyPtr->smallPlaneInit();
+			sEnemy.push_back(*sEnemyPtr);
 		}
 		if (bEnemy.empty() && sum % FIVE == 0) {
-			enemyPlane* e = new enemyPlane;
-			e->largePlaneInit();
-			bEnemy.push_back(*e);
+			std::shared_ptr<enemyPlane> bEnemyPtr = std::make_shared<enemyPlane>();
+			bEnemyPtr->largePlaneInit();
+			bEnemy.push_back(*bEnemyPtr);
 		}
 		//移动代码块
 		//所有存在的对象进行移动操作的部分
@@ -100,16 +100,16 @@ void gameStart() {
 		//玩家飞机子弹初始化 
 		//initializing player bullet
 		if (sum % TWO == 0) {
-			playerBullet* pb = new playerBullet;
-			pb->playerBulletInit(user.x, user.y, user.width, user.height);
-			pBullet.push_back(*pb);
+			std::shared_ptr<playerBullet> pBulletPtr = std::make_shared<playerBullet>();
+			pBulletPtr->playerBulletInit(user.x, user.y, user.width, user.height);
+			pBullet.push_back(*pBulletPtr);
 		}
 		//敌机子弹初始化
 		//enemy bullet initializing
 		if (!bEnemy.empty() && sum % THREE == 0) {
-			enemyBullet* eb = new enemyBullet;
-			eb->enemyBulletInit(bEnemy.front().x, bEnemy.front().y, bEnemy.front().width, bEnemy.front().height);
-			eBullet.push_back(*eb);
+			std::shared_ptr<enemyBullet> eBulletPtr = std::make_shared<enemyBullet>();
+			eBulletPtr->enemyBulletInit(bEnemy.front().x, bEnemy.front().y, bEnemy.front().width, bEnemy.front().height);
+			eBullet.push_back(*eBulletPtr);
 		}
 
 		//受击判断

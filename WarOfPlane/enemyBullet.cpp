@@ -11,17 +11,17 @@ void  enemyBullet::enemyBulletInit(int x, int y, int w, int h)
 	this->width = 20;
 	this->height = 20;
 	this->x = x + w / 2 - 10;
-	this->y = y+20+h;
+	this->y = y + 20 + h;
 	ATK = 1;
-	loadimage(&img1,"bossBullet1.png",20, 20);
+	loadimage(&img1, "bossBullet1.png", 20, 20);
 	loadimage(&img2, "bossBullet2.png", 20, 20);
-	putimage(this->x, this->y, &img1,SRCPAINT);
-	putimage(this->x, this->y, &img2,SRCAND);
+	putimage(this->x, this->y, &img1, SRCPAINT);
+	putimage(this->x, this->y, &img2, SRCAND);
 	
 
 }
 //×Óµ¯´òÓ¡
 void enemyBullet::eBulletPrint(void) const {
-	putimage(x, y, &img1,SRCPAINT);
+	putimage(x, y, &img1, SRCPAINT);
 	putimage(x, y, &img2, SRCAND);
 }

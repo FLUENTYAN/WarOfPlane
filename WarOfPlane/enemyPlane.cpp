@@ -9,8 +9,8 @@ void enemyPlane::smallPlaneInit(void) {
 	width = 30, height = 40;
 	x = rand() % 360+45; //随机生成450 ~750  如果生成的位置有敌机需要再次生成
 	y = -40;
-	putimage(x, y, &img1,SRCPAINT);
-	putimage(x, y, &img2,SRCAND);
+	putimage(x, y, &img1, SRCPAINT);
+	putimage(x, y, &img2, SRCAND);
 
 }
 
